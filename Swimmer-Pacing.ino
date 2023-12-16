@@ -1,21 +1,37 @@
 //================================
 #include <FastLED.h>    // Led Librabray for WS28xx 
+# define NS 5
+
 CRGB led[200];      //Number of LEDS per strip 
 
 
 //==========================================
-void setup()
+void setup(){
 
-{
+  Serial.begin(115200);
+  
+  lane.begin();
+  lane.FastLED.addLeds<WS2812B, 2, GRB>(led, 50);
+  lane.FastLED.addLeds<WS2812B, 3, GRB>(led, 50);
+  lane.FastLED.addLeds<WS2812B, 4, GRB>(led, 50);
+  lane.FastLED.addLeds<WS2812B, 5, GRB>(led, 50);
+  lane.FastLED.addLeds<WS2812B, 6, GRB>(led, 50);
+  FastLED.setBrightness(100;
+  lane.show();
 
-  FastLED.addLeds<WS2812B, 2, GRB>(led, 50);
-  FastLED.addLeds<WS2812B, 3, GRB>(led, 50);
-  FastLED.addLeds<WS2812B, 4, GRB>(led, 50);
-  FastLED.addLeds<WS2812B, 5, GRB>(led, 50);
-  FastLED.addLeds<WS2812B, 6, GRB>(led, 50);
-  FastLED.setBrightness(100);
-
+  lane.clear();
+  lane.show();
+  
 }
+
+struct {
+  int postiion;
+  unsigned long color;
+  byte resting;
+}
+  swimmers[ns] = {
+{ 
+
 
 void loop()
 
